@@ -138,7 +138,7 @@ label {
   left: 0;
   z-index: -1;
   font-size: 18.4vh;
-  position: absolute;
+  position: fixed;
   color: #ff5e5e !important;
 }
 .form-element {
