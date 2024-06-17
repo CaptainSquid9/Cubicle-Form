@@ -44,7 +44,7 @@ const SwipeComponent: React.FC = () => {
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
-      style={{ width: '100%', height: '100vh', zIndex:"20", position:"absolute"}}
+      style={{ width: '100%', height: '80vh', zIndex:"20", position:"absolute"}}
     >    </div>
   );
 };
