@@ -133,7 +133,7 @@ function Intro() {
             <form ref={FormName} autoComplete='off' onSubmit={handleSubmit}>
               <div className="form-container">
               </div>
-              <div className="form-element" style={{ paddingTop: '100px', paddingBottom: "100px" }} >
+              <div className="form-element" style={{ paddingTop: '50px', paddingBottom: "100px" }} >
                 <label htmlFor="name">What's your name?</label><br />
                 <input
                   type="text"
