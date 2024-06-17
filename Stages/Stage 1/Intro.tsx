@@ -74,13 +74,12 @@ function Intro() {
     }
     typingTimeout.current = window.setTimeout(() => {
       setIsTyping(false);
-      setVisible(false);
-      setShowSlidingCircle(true);
-
       setTimeout(() => {
         setInstruction(Instruction === "Meet your match" ? "Swipe!" : "Meet your match")
         setVisible(true);
       }, 1000);
+      setVisible(false);
+      setShowSlidingCircle(true);
 
     }, 2000);
   };

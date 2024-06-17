@@ -1,0 +1,11 @@
+/* SlidingCircle.css */
+.sliding-circle {
+    position: fixed;
+    display: flex;
+    top: 50%;
+    left: 0%;
+    width: 100%;
+    height: 100px;
+    z-index: 10;
+    overflow: visible; /* Ensure no clipping */
+  }
