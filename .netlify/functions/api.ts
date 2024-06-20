@@ -1,7 +1,7 @@
 // src/functions/server.ts
 import express from 'express';
 import serverless from 'serverless-http';
-import { generateColors, getUserColors } from './controllers/colorsController.js';
+import { generateColors, getUserColors } from '../../functions/colorsController';
 
 const app = express();
 
