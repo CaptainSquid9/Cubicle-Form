@@ -33,7 +33,7 @@ const [colors, setColors] = useState([]);
                 <div
                     key={index}
                     className={`sector sector-${index + 1}`}
-                    style={{ backgroundColor: color}}
+                    style={{ background: `linear-gradient(45deg, ${color}, white`}}
                 ></div>
             ))}
             </div>
