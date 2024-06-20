@@ -17,7 +17,7 @@ const [InvSectors, setInvSectors] =  useState<boolean[]>(new Array(9).fill(false
   useEffect(() => {
     const fetchUserColors = async (userId) => {
       try {
-        const response = await fetch(`http://localhost:5000/api/userColors/${userId}`);
+        const response = await fetch(`http://deluxe-cactus-6c7fb0.netlify.app:5000/api/userColors/${userId}`);
         if (response.ok) {
           const data = await response.json();
           setColors(data);
