@@ -10,12 +10,10 @@ app.use(bodyParser.json());
 app.use(cors());  // Enable CORS
 
 // Endpoint to generate and store colors
-app.post('https://deluxe-cactus-6c7fb0.netlify.app:5000/api/generateColors', generateColors);
-
+app.post('/api/generateColors', generateColors);
 // Endpoint to retrieve colors for a user
-app.get('https://deluxe-cactus-6c7fb0.netlify.app:5000/api/userColors/:userId', getUserColors);
+app.get('/api/userColors/:userId', getUserColors);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
 });
