@@ -3,7 +3,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import { generateColors, getUserColors } from './controllers/colorsController.js';
+import { generateColors, getUserColors } from '../.netlify/functions-internal/controllers/colorsController.js';
 
 const app = express();
 app.use(bodyParser.json());
