@@ -9,7 +9,7 @@ const HomePageRedirect = () => {
   useEffect(() => {
     const generateColors = async (userId) => {
       try {
-        const response = await fetch(`http://deluxe-cactus-6c7fb0.netlify.app:5000/api/generateColors`, {
+        const response = await fetch(`https://deluxe-cactus-6c7fb0.netlify.app:5000/api/generateColors`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
