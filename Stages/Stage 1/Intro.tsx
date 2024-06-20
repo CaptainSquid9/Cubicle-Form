@@ -2,14 +2,14 @@ import { useState, ChangeEvent, FormEvent, useRef } from 'react';
 import React from 'react';
 import './Intro.css';
 import SlidingCircle from './CircleSlide';
-import GlobalState from '../Global';
-
+import { useNavigate } from 'react-router-dom';
 
 
 let SetFinalOutside;
 let SetSlidingOutside;
 let setVisibleOutside;
 let FormName;
+let navigate;
 
 type Layer = {
   className: string;
@@ -29,6 +29,7 @@ const generateLayers = (numLayers: number, zIncrement: number): Layer[] => {
 
 
 function Intro() {
+  const Nav = useNavigate();
   const [FinalClass, setFinalClass] = useState("")
   const [isTyping, setIsTyping] = useState(false);
   const [Instruction, setInstruction] = useState("Meet your match")
@@ -37,6 +38,7 @@ function Intro() {
   const typingTimeout = useRef<number | null>(null);
   FormName = useRef();
 
+  navigate = Nav;
   setVisibleOutside = setVisible;
   SetFinalOutside = setFinalClass;
   SetSlidingOutside = setShowSlidingCircle;
@@ -162,9 +164,14 @@ function Intro() {
   )
 }
 function Final() {
+
   SetFinalOutside("final-cube-transition")
   SetSlidingOutside(false)
   setVisibleOutside(false);
+  setTimeout(() => {
+    navigate('./color');
+  }, 2000);
+
 }
 
 export { Intro, Final };

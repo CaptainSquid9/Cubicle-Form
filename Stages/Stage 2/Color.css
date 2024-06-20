@@ -1,0 +1,112 @@
+#root {
+    width: 100%;
+    text-align: center;
+    overflow:hidden;
+  }
+  .world {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    perspective: 400px;
+    animation: fadeIn 3s forwards ease-in-out;
+}
+.heading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.heading {
+    font-size: 14vh;
+    font-weight: bold;
+    animation: fadeIn 3.5s ease-in-out forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    color: white !important;
+  }
+  .backtext {
+    z-index: -1;
+    font-size: 14.4vh;
+    position: fixed;
+    color: #ff5e5e !important;
+    animation: fadeIn 3.5s ease-in-out forwards;
+  }
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade {
+    transition: color 1000ms ease-in-out;
+  }
+  .fade-hidden {
+    color: transparent !important;
+  }
+#colorWheel {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(30deg);
+    animation: fadeIn 5s forwards ease-in-out;
+    top: -50px;
+}
+
+.cw-shadow {
+    position: fixed !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -75px;
+    opacity: 0.3 !important;
+    z-index: -1;
+    transform: rotateY(30deg) translateZ(-40px) scale(1.1)!important;
+
+}#colorWheel .sector {
+    z-index: 100;
+    position: fixed;
+    left: 50%;
+    top: -5%;
+    width: 150px;
+    height: 150px;
+    clip-path: ellipse(100% 100% at 0% 100%);
+    transform: translateZ(0);
+    transform-origin: 0% 100%;
+    transition: transform 1s ease-in-out, opacity 1s linear;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+}
+.sector.scaled {
+  opacity: 0.5;
+  overflow: hidden;
+  transform: scale(0.01);
+  will-change: transform, opacity;
+}
+.sector.inv {
+    opacity: 0;
+}
+#colorWheel .sector-1 { transform: rotate(calc(0 * 90deg)); }
+#colorWheel .sector-2 { transform: rotate(calc(1 * 90deg)); }
+#colorWheel .sector-3 { transform: rotate(calc(2 * 90deg)); }
+#colorWheel .sector-4 { transform: rotate(calc(3 * 90deg)); }
+
+#colorWheel .sectorb-1 { transform: rotate(calc(0 * 90deg)); }
+#colorWheel .sectorb-2 { transform: rotate(calc(1 * 90deg)); }
+#colorWheel .sectorb-3 { transform: rotate(calc(2 * 90deg)); }
+#colorWheel .sectorb-4 { transform: rotate(calc(3 * 90deg)); }
+
+#colorWheel:hover .sector-1:hover { transform: translate(10px, -10px) scale(1.1) !important;}
+#colorWheel:hover .sector-2:hover { transform: rotate(calc(1 * 90deg)) translate(10px, -10px) scale(1.1) !important;}
+#colorWheel:hover .sector-3:hover { transform: rotate(calc(2 * 90deg)) translate(10px, -10px) scale(1.1) !important;}
+#colorWheel:hover .sector-4:hover { transform: rotate(calc(3 * 90deg)) translate(10px, -10px) scale(1.1) !important;}

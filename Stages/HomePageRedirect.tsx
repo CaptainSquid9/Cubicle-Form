@@ -17,7 +17,7 @@ const HomePageRedirect = () => {
           body: JSON.stringify({ userId }),
         });
         if (response.ok) {
-          navigate(`/user/${userId}`, { replace: true });
+          navigate(`/match/${userId}`, { replace: true });
         } else {
           throw new Error('Failed to generate colors');
         }
