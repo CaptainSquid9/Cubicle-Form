@@ -46,9 +46,10 @@ const [InvSectors, setInvSectors] =  useState<boolean[]>(new Array(4).fill(false
   };
   const DoubleClick = (i) => {
     const newScaledSectors = colors.map((_, index) => index !== i); // Track which sectors should be scaled
+    console.log(newScaledSectors)
     setInvSectors(newScaledSectors);
     setTimeout(() => {
-      setInvSectors(colors.map((_, index) => index == i));
+      setInvSectors(i);
     }, 3000);
   }
     return (
