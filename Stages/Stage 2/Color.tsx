@@ -49,9 +49,9 @@ const [InvSectors, setInvSectors] =  useState<boolean[]>(new Array(4).fill(false
     console.log(newScaledSectors)
     setInvSectors(newScaledSectors);
     setTimeout(() => {
-      const allSectors = newScaledSectors.map(() => false);
+      const allSectors = newScaledSectors.map(() => true);
       setInvSectors(allSectors);
-    }, 3000);
+    }, 2000);
   }
     return (
         <div>
