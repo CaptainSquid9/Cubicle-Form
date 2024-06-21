@@ -9,7 +9,7 @@ const { id } = useParams();
 const [colors, setColors] = useState([]);
 const [visible, setVisible] = useState(true);
 //sector visibility
-const [Instruction, setInstruction] = useState("Pick a color")
+const [Instruction, setInstruction] = useState("Pick your favorite color")
 const [scaledSectors, setScaledSectors] =  useState<boolean[]>(new Array(9).fill(false)); // State to track scaled sectors
 const [InvSectors, setInvSectors] =  useState<boolean[]>(new Array(9).fill(false)); // State to track scaled sectors
 
