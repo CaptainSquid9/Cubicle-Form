@@ -6,10 +6,4 @@
   to = "/.netlify/functions/server"
   status = 200
   
-
-  
-[[redirects]]
-  from = "/*"
-  to = "/"
-  status = 200
   
