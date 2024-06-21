@@ -48,8 +48,8 @@ const [InvSectors, setInvSectors] =  useState<boolean[]>(new Array(4).fill(false
     const newScaledSectors = colors.map((_, index) => index !== i); // Track which sectors should be scaled
     setInvSectors(newScaledSectors);
     setTimeout(() => {
-      setInvSectors(colors.map((i)));
-    }, 1000);
+      setInvSectors(colors.map(i));
+    }, 3000);
   }
     return (
         <div>
