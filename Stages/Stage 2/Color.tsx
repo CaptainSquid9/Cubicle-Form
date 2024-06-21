@@ -69,6 +69,7 @@ const [InvSectors, setInvSectors] =  useState<boolean[]>(new Array(4).fill(false
                     onMouseEnter={() => ClickColor(index)}
                     onMouseLeave={() =>setScaledSectors(new Array(9).fill(false))}
                     onDoubleClick={() => DoubleClick(index)}
+                    onDoubleClickCapture={() => DoubleClick(index)}
                 ></div>
             ))}
             </div>
