@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: '0.0.0.0',  // Bind to all network interfaces to make the server accessible from other devices
-    port: 6679,       // Specify the port you want to use
+    port: 5173,       // Specify the port you want to use
   },
 });

@@ -9,7 +9,7 @@ const HomePageRedirect = () => {
   useEffect(() => {
     const generateColors = async (userId) => {
       try {
-        const response = await fetch('/api/generateColors', {
+        const response = await fetch(`/api/generateColors`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

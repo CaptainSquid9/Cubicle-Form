@@ -1,3 +1,19 @@
 {
-	"siteId": "b53c5ba3-e398-4b52-ae2a-8bf89799bfaf"
+	"geolocation": {
+		"data": {
+			"city": "Lo Barnechea",
+			"country": {
+				"code": "CL",
+				"name": "Chile"
+			},
+			"subdivision": {
+				"code": "RM",
+				"name": "Santiago Metropolitan"
+			},
+			"timezone": "America/Santiago",
+			"latitude": -33.3637,
+			"longitude": -70.506
+		},
+		"timestamp": 1718937075571
+	}
 }
