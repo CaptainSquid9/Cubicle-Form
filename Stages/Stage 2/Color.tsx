@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Component } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import './Color.css'
 
 
@@ -8,11 +8,14 @@ function Fun() {
 const { id } = useParams();
 const [colors, setColors] = useState([]);
 const [visible, setVisible] = useState(true);
+//double tap
+const [waitingClick, setWaitingClick] = useState<ReturnType<typeof setTimeout> | null>(null);
+const [lastClick, setLastClick] = useState(0);
 //sector visibility
 const [Instruction, setInstruction] = useState("Pick your favorite color")
 const [scaledSectors, setScaledSectors] =  useState<boolean[]>(new Array(4).fill(false)); // State to track scaled sectors
 const [InvSectors, setInvSectors] =  useState<boolean[]>(new Array(4).fill(false)); // State to track scaled sectors
-
+const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserColors = async (userId) => {
@@ -51,8 +54,38 @@ const [InvSectors, setInvSectors] =  useState<boolean[]>(new Array(4).fill(false
     setTimeout(() => {
       const allSectors = new Array(4).fill(true)
       setInvSectors(allSectors);
+      setVisible(false);
     }, 2000);
+    setTimeout(() => {
+      navigate('./questions');
+    }, 4000);
   }
+
+
+
+  // Double tap (mobile) detect
+  const processClick = (e, i) => {
+    if (lastClick && e.timeStamp - lastClick < 250) {
+      // Double tap detected
+      setLastClick(0);
+      if (waitingClick) {
+        clearTimeout(waitingClick);
+      }
+      console.log("Do the steps to respond double click");
+      DoubleClick(i);
+      setWaitingClick(null);
+    } else {
+      // Single tap detected
+      setLastClick(e.timeStamp);
+      const timeout = setTimeout(() => {
+        setWaitingClick(null);
+        console.log("Do the steps to respond single click");
+        // You can add the single click action here if needed
+      }, 250);
+      setWaitingClick(timeout);
+    }
+  };
+
     return (
         <div>
         <div className="heading-container">
@@ -68,8 +101,7 @@ const [InvSectors, setInvSectors] =  useState<boolean[]>(new Array(4).fill(false
                     style={{ background: `linear-gradient(45deg, ${color} 35%, white`}}
                     onMouseEnter={() => ClickColor(index)}
                     onMouseLeave={() =>setScaledSectors(new Array(9).fill(false))}
-                    onDoubleClick={() => DoubleClick(index)}
-                    onDoubleClickCapture={() => DoubleClick(index)}
+                    onClick={(e)=>processClick(e,index)}
                 ></div>
             ))}
             </div>
