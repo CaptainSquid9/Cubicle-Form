@@ -8,6 +8,9 @@ import { useNavigate } from 'react-router-dom';
 let SetFinalOutside;
 let SetSlidingOutside;
 let setVisibleOutside;
+let SetQuestionOutside;
+let SetResetOutside;
+let setFormDataOutside;
 let FormName;
 let navigate;
 
@@ -31,17 +34,24 @@ const generateLayers = (numLayers: number, zIncrement: number): Layer[] => {
 function Intro() {
   const Nav = useNavigate();
   const [FinalClass, setFinalClass] = useState("")
+  const [ResetClass, setResetClass] = useState("swing-label")
   const [isTyping, setIsTyping] = useState(false);
   const [Instruction, setInstruction] = useState("Meet your match")
+  const [Question, setQuestion] = useState("What's your name?")
   const [visible, setVisible] = useState(true);
   const [showSlidingCircle, setShowSlidingCircle] = useState(false);
   const typingTimeout = useRef<number | null>(null);
+  const [formData, setFormData] = useState({name: ""});
   FormName = useRef();
 
   navigate = Nav;
   setVisibleOutside = setVisible;
   SetFinalOutside = setFinalClass;
   SetSlidingOutside = setShowSlidingCircle;
+  SetQuestionOutside = setQuestion;
+  SetResetOutside = setResetClass;
+  setFormDataOutside = setFormData; 
+
 
   //BORF = Sphere
   //DAVID = Cylinder
@@ -57,10 +67,6 @@ function Intro() {
 
 
 
-
-  const [formData, setFormData] = useState({
-    name: ""
-  });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -136,15 +142,19 @@ function Intro() {
               <div className="form-container">
               </div>
               <div className="form-element" style={{ paddingTop: '50px', paddingBottom: "50px" }} >
-                <label htmlFor="name">What's your name?</label><br />
-                <input
-                  type="text"
+              <span>
+              <input 
+                  maxLength={14}
+                  className="swing"
+                  type="text" 
+                  placeholder=""                  
                   id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  required
-                />
+                  required />
+              <label htmlFor="name" className={`${ResetClass}`}>{`${Question}`}</label>
+              </span>
 
               </div>
 
@@ -164,13 +174,21 @@ function Intro() {
   )
 }
 function Final() {
-
+  console.log("Final")
   SetFinalOutside("final-cube-transition")
-  SetSlidingOutside(false)
-  setVisibleOutside(false);
+  SetResetOutside("reset")
   setTimeout(() => {
-    navigate('./color');
-  }, 2000);
+    SetResetOutside("swing-label")
+    SetQuestionOutside("What's their name?")
+    setFormDataOutside({name: ""});
+  }, 500);
+  setTimeout(() => {
+    //navigate('./color');
+    SetFinalOutside("")
+    SetSlidingOutside(false)
+   }, 2000);
+    //setVisibleOutside(false);
+
 
 }
 

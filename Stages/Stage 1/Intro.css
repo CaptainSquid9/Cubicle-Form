@@ -4,11 +4,6 @@
   overflow:hidden;
 }
 
-label {
-  color: white;
-  font-weight: 400;
-  font-size: 3vh;
-}
 .heart {
   z-index: 5;
   width: 200px; /* Adjust the width and height to fit your design */
@@ -21,24 +16,23 @@ label {
 .heart.hovered {
   transform: rotateY(10deg) rotateX(5deg) translateZ(-20vh) translateX(-2.5vh) translateY(-30vh);
 }
-
+/*
 .final-cube-transition {
     transition: opacity 3s ease, color 3s ease;
     opacity: 0;
     color: transparent;
 }
-
+*/
 #final-cube-transition {
-  animation: final 3s linear;
+  animation: final 1.3s ease-in-out;
 }
 
 @keyframes final {
-50%{
-  transform: rotateY(180deg) rotateX(5deg) translateZ(-40vh) translateX(-2.5vh) translateY(-10vh);
+0%{
+  transform: rotateY(30deg) rotateX(10deg) translateZ(-10vh) translateX(0vh) translateY(-40vh);
 }
 100% {
-  transform: rotateY(360deg) rotateX(5deg) translateZ(-40vh) translateX(-2.5vh) translateY(20vh);
-  display: none;
+  transform: rotateY(389deg) rotateX(10deg) translateZ(-10vh) translateX(0vh) translateY(-40vh)
 }
 }
 .cube-container {
@@ -172,9 +166,84 @@ label {
 .fade-hidden {
   color: transparent !important;
 }
-input {
-  background-color: white !important;
-  border: solid white;
-  color: #390707 !important;
-}
 
+/*Swing anim*/
+
+.swing {
+  display: inline-block;
+  width: 215px;
+  padding: 10px 0 10px 15px;
+  font-family: "Open Sans", sans;
+  font-weight: 400;
+  color: #740c0c;
+  background: #efefef;
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  text-indent: 0px; 
+  
+  &::-webkit-input-placeholder {
+    color: #efefef;
+    text-indent: 0;
+    font-weight: 400;
+  }
+  + .reset{
+    display: inline-block;
+    position: absolute;
+    top: 50px;
+    left: 33px;
+    padding: 5px 10px;
+    font-weight: 600;
+    text-shadow: 0 3px 0 #971616;
+    background:  linear-gradient(#9f1010, #740c0c);
+    border: 1px white solid;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    transform-origin: 2px 2px;
+    animation: swing-back 0.9s 1 ease-in-out forwards;
+  }
++ .swing-label  {
+    display: inline-block;
+    position: absolute;
+    top: 50px;
+    left: 33px;
+    padding: 5px 10px;
+    font-weight: 600;
+    text-shadow: 0 3px 0 #971616;
+    background:  linear-gradient(#9f1010, #740c0c);
+    border: 1px white solid;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    transform-origin: 2px 2px;
+    animation: swing 1.4s 1 linear forwards;
+    animation-delay: 4s;
+  }
+}
+@keyframes swing {
+  0% {
+    transform: rotate(0);
+  }
+  20% {
+    transform: rotate(116deg);
+  }
+  40% {
+    transform: rotate(60deg);
+  }
+  60% {
+    transform: rotate(98deg);
+  }
+  80% {
+    transform: rotate(76deg);
+  }
+  100% {
+    transform: rotate(82deg);
+  }
+}
+@keyframes swing-back {
+  0% {
+    transform: rotate(82deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
