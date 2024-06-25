@@ -10,9 +10,10 @@ let SetSlidingOutside;
 let setVisibleOutside;
 let SetQuestionOutside;
 let SetResetOutside;
-let setFormDataOutside;
+let SetFormDataOutside;
 let FormName;
 let navigate;
+let finali = 0;
 
 type Layer = {
   className: string;
@@ -50,23 +51,7 @@ function Intro() {
   SetSlidingOutside = setShowSlidingCircle;
   SetQuestionOutside = setQuestion;
   SetResetOutside = setResetClass;
-  setFormDataOutside = setFormData; 
-
-
-  //BORF = Sphere
-  //DAVID = Cylinder
-  //JIAAN = Heptagon
-  //MING = Pyramid
-  //AZRY = Sphere
-  //NICO = Egg
-  //GASPAR = Cube
-  //RENAE = 12 sided dice
-  //CRIS = Icosahedron
-  //Sarah = 12 sided dice
-  //Maida = Icosahedron
-
-
-
+  SetFormDataOutside = setFormData; 
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -81,9 +66,10 @@ function Intro() {
       clearTimeout(typingTimeout.current);
     }
     typingTimeout.current = window.setTimeout(() => {
+      setVisible(true);
       setIsTyping(false);
       setTimeout(() => {
-        setInstruction(Instruction === "Meet your match" ? "Swipe!" : "Meet your match")
+        setInstruction(Instruction === "Meet your match" ? "Swipe Left!" : "Swipe again!")
         setVisible(true);
       }, 1000);
       setVisible(false);
@@ -174,21 +160,32 @@ function Intro() {
   )
 }
 function Final() {
+  
+  finali++;
+  setVisibleOutside(false);
+  if (finali == 2) {
+    SetFinalOutside("final-cube-transition")
+    setTimeout(() => {
+      navigate('./color');
+    }, 2000);
+
+  }
+  else {
   console.log("Final")
-  SetFinalOutside("final-cube-transition")
+  SetFinalOutside("cube-transition")
   SetResetOutside("reset")
   setTimeout(() => {
+    
     SetResetOutside("swing-label")
     SetQuestionOutside("What's their name?")
-    setFormDataOutside({name: ""});
+    SetFormDataOutside({name: ""});
   }, 500);
   setTimeout(() => {
-    //navigate('./color');
     SetFinalOutside("")
     SetSlidingOutside(false)
    }, 2000);
     //setVisibleOutside(false);
-
+  }
 
 }
 

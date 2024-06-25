@@ -16,14 +16,14 @@
 .heart.hovered {
   transform: rotateY(10deg) rotateX(5deg) translateZ(-20vh) translateX(-2.5vh) translateY(-30vh);
 }
-/*
+
 .final-cube-transition {
-    transition: opacity 3s ease, color 3s ease;
+    transition: opacity 1.8s ease, color 3s ease;
     opacity: 0;
     color: transparent;
 }
-*/
-#final-cube-transition {
+
+#cube-transition {
   animation: final 1.3s ease-in-out;
 }
 
@@ -120,7 +120,7 @@
   transform-origin: 75% 100%;
 }
 .heading {
-  font-size: 17vh;
+  font-size: 17em;
   font-weight: bold;
   animation: fadeIn 5.5s ease-in-out forwards;
   width: 100%;
@@ -131,7 +131,7 @@
   top: 0;
   left: 0;
   z-index: -1;
-  font-size: 18.4vh;
+  font-size: 18.4em;
   position: fixed;
   color: #ff5e5e !important;
 }
