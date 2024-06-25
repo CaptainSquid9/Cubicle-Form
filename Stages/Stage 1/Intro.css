@@ -120,18 +120,18 @@
   transform-origin: 75% 100%;
 }
 .heading {
-  font-size: 17em;
+  font-size: 20em;
   font-weight: bold;
   animation: fadeIn 5.5s ease-in-out forwards;
   width: 100%;
-  padding-bottom: 100px;
+  padding-bottom: 120px;
   color: white !important;
 }
 .backtext {
   top: 0;
   left: 0;
   z-index: -1;
-  font-size: 18.4em;
+  font-size: 23.4em;
   position: fixed;
   color: #ff5e5e !important;
 }
