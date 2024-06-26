@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Component } from 'react';
 import { useParams,useNavigate } from 'react-router-dom';
+import {useGlobalData} from '../global'
 import './Color.css'
 
 
@@ -15,6 +16,7 @@ const [lastClick, setLastClick] = useState(0);
 const [Instruction, setInstruction] = useState("Pick your favorite color")
 const [scaledSectors, setScaledSectors] =  useState<boolean[]>(new Array(4).fill(false)); // State to track scaled sectors
 const [InvSectors, setInvSectors] =  useState<boolean[]>(new Array(4).fill(false)); // State to track scaled sectors
+const { globalData, setData } = useGlobalData();
 const navigate = useNavigate();
 
   useEffect(() => {
@@ -47,7 +49,9 @@ const navigate = useNavigate();
     setVisible(false);
   }
   };
-  const DoubleClick = (i) => {
+  const DoubleClick = (i, color) => {
+    setData(undefined,undefined,color);
+    console.log(color)
     const newScaledSectors = colors.map((_, index) => index !== i); // Track which sectors should be scaled
     console.log(newScaledSectors)
     setInvSectors(newScaledSectors);
@@ -57,14 +61,14 @@ const navigate = useNavigate();
       setVisible(false);
     }, 2000);
     setTimeout(() => {
-      navigate('./questions');
+      navigate('../match/:id/loading');
     }, 4000);
   }
 
 
 
   // Double tap (mobile) detect
-  const processClick = (e, i) => {
+  const processClick = (e, i, color) => {
     if (lastClick && e.timeStamp - lastClick < 250) {
       // Double tap detected
       setLastClick(0);
@@ -72,7 +76,7 @@ const navigate = useNavigate();
         clearTimeout(waitingClick);
       }
       console.log("Do the steps to respond double click");
-      DoubleClick(i);
+      DoubleClick(i, color);
       setWaitingClick(null);
     } else {
       // Single tap detected
@@ -101,7 +105,7 @@ const navigate = useNavigate();
                     style={{ background: `linear-gradient(45deg, ${color} 35%, white`}}
                     onMouseEnter={() => ClickColor(index)}
                     onMouseLeave={() =>setScaledSectors(new Array(9).fill(false))}
-                    onClick={(e)=>processClick(e,index)}
+                    onClick={(e)=>processClick(e,index, color)}
                 ></div>
             ))}
             </div>

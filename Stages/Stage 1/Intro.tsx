@@ -1,8 +1,9 @@
 import { useState, ChangeEvent, FormEvent, useRef } from 'react';
 import React from 'react';
-import './Intro.css';
+import {useGlobalData} from '../global'
 import SlidingCircle from './CircleSlide';
 import { useNavigate } from 'react-router-dom';
+import './Intro.css';
 
 
 let SetFinalOutside;
@@ -11,6 +12,8 @@ let setVisibleOutside;
 let SetQuestionOutside;
 let SetResetOutside;
 let SetFormDataOutside;
+let setDataOutside;
+let FormDataOutside;
 let FormName;
 let navigate;
 let finali = 0;
@@ -33,6 +36,7 @@ const generateLayers = (numLayers: number, zIncrement: number): Layer[] => {
 
 
 function Intro() {
+  
   const Nav = useNavigate();
   const [FinalClass, setFinalClass] = useState("")
   const [ResetClass, setResetClass] = useState("swing-label")
@@ -43,6 +47,7 @@ function Intro() {
   const [showSlidingCircle, setShowSlidingCircle] = useState(false);
   const typingTimeout = useRef<number | null>(null);
   const [formData, setFormData] = useState({name: ""});
+  const { globalData, setData } = useGlobalData();
   FormName = useRef();
 
   navigate = Nav;
@@ -52,6 +57,10 @@ function Intro() {
   SetQuestionOutside = setQuestion;
   SetResetOutside = setResetClass;
   SetFormDataOutside = setFormData; 
+  setDataOutside = setData;
+
+  FormDataOutside = formData;
+
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -106,7 +115,6 @@ function Intro() {
   const max = numLayers * zIncrement; 
   const layers = generateLayers(numLayers, zIncrement);
 
-
   return (
     <div>
       {showSlidingCircle && <SlidingCircle />}
@@ -160,10 +168,10 @@ function Intro() {
   )
 }
 function Final() {
-  
   finali++;
   setVisibleOutside(false);
   if (finali == 2) {
+    setDataOutside(undefined,FormDataOutside.name)
     SetFinalOutside("final-cube-transition")
     setTimeout(() => {
       navigate('./color');
@@ -171,6 +179,7 @@ function Final() {
 
   }
   else {
+  setDataOutside(FormDataOutside.name)
   console.log("Final")
   SetFinalOutside("cube-transition")
   SetResetOutside("reset")
