@@ -42,7 +42,8 @@ h5 {
     width: 25px;
     height: 25px;
     border-radius: 100%;
-    background: radial-gradient(#fff, transparent);
+    transition: background-color 3s ease-in-out;
+    border: 1px white solid;
     opacity: 0;
 }
 

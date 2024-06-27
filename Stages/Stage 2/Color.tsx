@@ -61,7 +61,7 @@ const navigate = useNavigate();
       setVisible(false);
     }, 2000);
     setTimeout(() => {
-      navigate('../match/:id/loading');
+      navigate('./loading');
     }, 4000);
   }
 

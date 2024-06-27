@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <Routes>
       <Route path="/match/:id" element={<Intro/>} />
       <Route path="/match/:id/color" element={<Color/>} />
-      <Route path="/match/:id/loading" element={<Calculate/>} />
+      <Route path="/match/:id/color/loading" element={<Calculate/>} />
       <Route path="/" element={<HomePageRedirect />} />
     </Routes>
   </Router>

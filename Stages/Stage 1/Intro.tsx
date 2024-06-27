@@ -12,6 +12,7 @@ let setVisibleOutside;
 let SetQuestionOutside;
 let SetResetOutside;
 let SetFormDataOutside;
+let SetShowSlidingOutside;
 let setDataOutside;
 let FormDataOutside;
 let FormName;
@@ -58,6 +59,7 @@ function Intro() {
   SetResetOutside = setResetClass;
   SetFormDataOutside = setFormData; 
   setDataOutside = setData;
+  SetShowSlidingOutside = setShowSlidingCircle;
 
   FormDataOutside = formData;
 
@@ -195,7 +197,7 @@ function Final() {
    }, 2000);
     //setVisibleOutside(false);
   }
-
+  SetShowSlidingOutside(false);
 }
 
 export { Intro, Final };

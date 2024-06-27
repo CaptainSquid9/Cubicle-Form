@@ -7,6 +7,7 @@ let Data;
 let SetInfoOutside;
 let InfoOutside;
 let x= 0;
+let SetGradientColorOutside;
 const useTypewriter = (text, speed = 50) => {
     const [displayText, setDisplayText] = useState('');
   
@@ -14,7 +15,6 @@ const useTypewriter = (text, speed = 50) => {
     const TextLines= [
       "Your name is " + Data.UserName + "...",
       "And we are talking about " + Data.MatchName + "...",
-      "Interesting choice...",
       "Ooooh and you picked " + Data.Color + "...",
       "That's all I needed...",
       "Let me do my magic..."
@@ -44,6 +44,10 @@ const useTypewriter = (text, speed = 50) => {
       setTimeout(() => {
         SetInfoOutside(TextLines[x-1])
         console.log(TextLines[x-1])
+        if (x == 4) {
+          console.log("Color Check")
+          SetGradientColorOutside(Data.Color)
+        }
       }, 2000);
     }
     return displayText;
@@ -52,11 +56,13 @@ const useTypewriter = (text, speed = 50) => {
 function Calculate() {
     const { globalData, setData } = useGlobalData();
     const [info, setInfo] = useState("Let's see...");
+    const [gradientColor, setGradientColor] = useState("#fff");
 
     Data = globalData;
     SetInfoOutside = setInfo;
     InfoOutside = info
-    const displayText = useTypewriter(info, 100);
+    SetGradientColorOutside = setGradientColor;
+    const displayText = useTypewriter(info, 50);
 
     return (
         <div className='container'>
@@ -64,9 +70,9 @@ function Calculate() {
             <div className="load-wrapp">
                 <div className="load-9">
                     <div className="spinner">
-                        <div className="bubble-1"></div>
-                        <div className="bubble-2"></div>
-                        <div className="bubble-3"></div>
+                        <div className="bubble-1" style={{ backgroundColor: `${gradientColor}`}}></div>
+                        <div className="bubble-2" style={{ backgroundColor: `${gradientColor}`}}></div>
+                        <div className="bubble-3" style={{ backgroundColor: `${gradientColor}`}}></div>
                     </div>
                 </div>
             </div>
