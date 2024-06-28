@@ -62,8 +62,14 @@ function Calculate() {
     SetInfoOutside = setInfo;
     InfoOutside = info
     SetGradientColorOutside = setGradientColor;
+    const navigate = useNavigate();
     const displayText = useTypewriter(info, 50);
 
+    useEffect(() => {
+    if (Data.UserName == "" || Data.MatchName == "" || Data.Color == "") {
+      navigate("/")
+    }
+  })
     return (
         <div className='container'>
             <h5 >{`${displayText}`}</h5 >

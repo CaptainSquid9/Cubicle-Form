@@ -23,6 +23,7 @@
     font-weight: bold;
     animation: fadeIn 3.5s ease-in-out forwards;
     display: flex;
+    height: 200px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -60,7 +61,7 @@
     justify-content: center;
     align-items: center;
     transform-style: preserve-3d;
-    transform: rotateY(30deg) translateX(5vh);
+    transform: rotateY(30deg) translateX(5vh) translateY(-7em);
     animation: fadeIn 5s forwards ease-in-out;
     top: -50px;
 }
@@ -73,7 +74,7 @@
     top: -75px;
     opacity: 0.3 !important;
     z-index: -1;
-    transform: rotateY(30deg) translateZ(-40px) scale(1.1) translateX(5vh)!important;
+    transform: rotateY(30deg) translateZ(-40px) scale(1.1) translateX(5vh)  translateY(-7em)!important;
 
 }#colorWheel .sector {
     z-index: 100;

@@ -1,8 +1,4 @@
-#root {
-  width: 100%;
-  text-align: center;
-  overflow:hidden;
-}
+
 .heart {
   z-index: 5;
   width: 200px; /* Adjust the width and height to fit your design */
@@ -118,22 +114,25 @@
   transform: rotate(45deg);
   transform-origin: 75% 100%;
 }
-.heading {
-  font-size: 20em;
+.headingI {
+  padding-bottom: 100px;
+  font-size: 4.5em;
   font-weight: bold;
-  animation: fadeIn 5.5s ease-in-out forwards;
-  width: 100%;
-  z-index: 0;
+  animation: fadeIn 3.5s ease-in-out forwards;
+  display: flex;
   height: 200px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
   color: white !important;
 }
-.backtext {
-  top: 0;
-  left: 0;
+.backtextI {
   z-index: -1;
-  font-size: 23.4em;
+  font-size: 4.6em;
   position: fixed;
   color: #ff5e5e !important;
+  animation: fadeIn 3.5s ease-in-out forwards;
 }
 .form-element {
   opacity: 0; /* Initially hide the form element */
@@ -159,13 +158,6 @@
     ); /* Bring the form element to its original position */
   }
 }
-.fade {
-  transition: color 1000ms ease-in-out;
-}
-
-.fade-hidden {
-  color: transparent !important;
-}
 
 /*Swing anim*/
 
@@ -174,7 +166,8 @@
   width: 215px;
   padding: 10px 0 10px 15px;
   font-family: "Open Sans", sans;
-  font-weight: 400;
+  font-weight: 450;
+  font-size: 1em;
   color: #740c0c;
   background: #efefef;
   border: 0;
@@ -207,7 +200,7 @@
     position: absolute;
     top: 50px;
     left: 33px;
-    padding: 5px 10px;
+    padding: 6px 10px;
     font-weight: 600;
     text-shadow: 0 3px 0 #971616;
     background:  linear-gradient(#9f1010, #740c0c);

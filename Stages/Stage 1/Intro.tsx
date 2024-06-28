@@ -42,7 +42,7 @@ function Intro() {
   const [FinalClass, setFinalClass] = useState("")
   const [ResetClass, setResetClass] = useState("swing-label")
   const [isTyping, setIsTyping] = useState(false);
-  const [Instruction, setInstruction] = useState("Meet your match")
+  const [Instruction, setInstruction] = useState("Compatibility Test")
   const [Question, setQuestion] = useState("What's your name?")
   const [visible, setVisible] = useState(true);
   const [showSlidingCircle, setShowSlidingCircle] = useState(false);
@@ -80,7 +80,7 @@ function Intro() {
       setVisible(true);
       setIsTyping(false);
       setTimeout(() => {
-        setInstruction(Instruction === "Meet your match" ? "Swipe Left!" : "Swipe again!")
+        setInstruction(Instruction === "Compatibility Test" ? "Swipe right!" : "Swipe again!")
         setVisible(true);
       }, 1000);
       setVisible(false);
@@ -124,8 +124,8 @@ function Intro() {
 
 
       <div className="heading-container" style={{ paddingBottom: '75px' }}>
-        <h1 className={`fade ${!visible ? 'fade-hidden' : ''} heading ${FinalClass}`} >{Instruction}</h1>
-        <h1 className={`backtext fade ${!visible ? 'fade-hidden' : ''} heading ${FinalClass}`} >{Instruction}</h1>
+        <h1 className={`fade ${!visible ? 'fade-hidden' : ''} headingI ${FinalClass}`} >{Instruction}</h1>
+        <h1 className={`backtextI fade ${!visible ? 'fade-hidden' : ''} headingI ${FinalClass}`} >{Instruction}</h1>
       </div>
 
 

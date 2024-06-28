@@ -21,6 +21,7 @@
 h5 {
     padding: 300px 0 20px;
     position: fixed;
+    font-size: 1.7em;
 }
 
 .load-wrapp:last-child {
