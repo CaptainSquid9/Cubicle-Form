@@ -28,10 +28,10 @@
 
 @keyframes final {
 0%{
-  transform: rotateY(30deg) rotateX(10deg) translateZ(-10vh) translateX(0vh) translateY(-30vh);
+  transform: rotateY(30deg) rotateX(10deg) translateZ(-10vh) translateX(0vh) translateY(-15em);
 }
 100% {
-  transform: rotateY(389deg) rotateX(10deg) translateZ(-10vh) translateX(0vh) translateY(-30vh)
+  transform: rotateY(389deg) rotateX(10deg) translateZ(-10vh) translateX(0vh) translateY(-15em)
 }
 }
 .cube-container {

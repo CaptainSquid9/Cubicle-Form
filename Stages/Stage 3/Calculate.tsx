@@ -44,7 +44,7 @@ const useTypewriter = (text, speed = 50) => {
       setTimeout(() => {
         SetInfoOutside(TextLines[x-1])
         console.log(TextLines[x-1])
-        if (x == 4) {
+        if (x == 3) {
           console.log("Color Check")
           SetGradientColorOutside(Data.Color)
         }
