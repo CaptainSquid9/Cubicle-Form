@@ -123,7 +123,7 @@ function Intro() {
 
 
 
-      <div className="heading-container" style={{ paddingBottom: '75px' }}>
+      <div className="heading-container">
         <h1 className={`fade ${!visible ? 'fade-hidden' : ''} headingI ${FinalClass}`} >{Instruction}</h1>
         <h1 className={`backtextI fade ${!visible ? 'fade-hidden' : ''} headingI ${FinalClass}`} >{Instruction}</h1>
       </div>

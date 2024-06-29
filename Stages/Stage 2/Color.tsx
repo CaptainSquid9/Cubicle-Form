@@ -31,6 +31,7 @@ const navigate = useNavigate();
         }
       } catch (error) {
         console.error('Error fetching user colors:', error);
+        navigate("/");
       }
     };
 

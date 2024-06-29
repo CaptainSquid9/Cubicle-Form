@@ -6,13 +6,18 @@ import './Calculate.css'
 let Data;
 let SetInfoOutside;
 let InfoOutside;
-let x= 0;
 let SetGradientColorOutside;
+let SetAnimClassOutside;
+let SetVisibleOutside;
+let x= 0;
+let check = false;
+let current = 0;
+let CompatibilityMax = Math.floor(Math.random() * (Math.floor(90) - Math.ceil(65)) + Math.ceil(65));
+let compatibilityOutside;
+
 const useTypewriter = (text, speed = 50) => {
     const [displayText, setDisplayText] = useState('');
-  
-
-    const TextLines= [
+      const TextLines= [
       "Your name is " + Data.UserName + "...",
       "And we are talking about " + Data.MatchName + "...",
       "Ooooh and you picked " + Data.Color + "...",
@@ -38,32 +43,82 @@ const useTypewriter = (text, speed = 50) => {
     }, [text, speed]);
     console.log(text)
     console.log(displayText)
-    if (x < TextLines.length && InfoOutside == displayText){
+    if (x < TextLines.length && InfoOutside == displayText && check== false){
+      check = true;
       x++;
       console.log(true)
       setTimeout(() => {
         SetInfoOutside(TextLines[x-1])
+        check = false
         console.log(TextLines[x-1])
         if (x == 3) {
           console.log("Color Check")
           SetGradientColorOutside(Data.Color)
         }
+        
       }, 2000);
     }
     return displayText;
   };
+function PercentageChange(speeds) {
+  const [percentage, setPercentage] = useState(0);
+
+  let min;
+  let max;
+  let minCeiled
+  let maxFloored
+  let compatible
+  console.log(CompatibilityMax)
+  useEffect(() => {
+    const randomInterval = setInterval(() => {
+      if (current < CompatibilityMax) {
+        max = current + 5;
+        min = current - 2;
+        if (min < 0) {
+          min = 5
+        }
+        minCeiled = Math.ceil(min);
+        maxFloored = Math.floor(max);
+
+        current = Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled)
+         setPercentage(current);
+      } else {
+        max = current;
+        min = current - 20;
+        minCeiled = Math.ceil(min);
+        maxFloored = Math.floor(max);
+
+        current = Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled)
+         setPercentage(current);
+      }
+      setTimeout(() => {
+        SetAnimClassOutside("final-anim")
+        SetVisibleOutside(true)
+        clearInterval(randomInterval);
+      }, 20000);
+    }, speeds);
+  }, [speeds])
+  return percentage
+}
 
 function Calculate() {
     const { globalData, setData } = useGlobalData();
     const [info, setInfo] = useState("Let's see...");
     const [gradientColor, setGradientColor] = useState("#fff");
+    const [animClass, setAnimClass] = useState('percentage-anim')
+    const [visible, setVisible] = useState(false);
+    const [Instruction, setInstruction] = useState("Double click to give it a boost")
 
     Data = globalData;
     SetInfoOutside = setInfo;
-    InfoOutside = info
+    InfoOutside = info;
     SetGradientColorOutside = setGradientColor;
+    SetAnimClassOutside = setAnimClass;
+    SetVisibleOutside = setVisible
     const navigate = useNavigate();
+    
     const displayText = useTypewriter(info, 50);
+    const percentage = PercentageChange(200);
 
     useEffect(() => {
     if (Data.UserName == "" || Data.MatchName == "" || Data.Color == "") {
@@ -71,6 +126,11 @@ function Calculate() {
     }
   })
     return (
+    <div>
+        <div className="heading-container text-inst">
+        <h1 className={` fade ${!visible ? 'fade-hidden' : ''} heading`} >{Instruction}</h1>
+         <h1 className={` backtext fade ${!visible ? 'fade-hidden' : ''} heading`} >{Instruction}</h1>
+        </div>
         <div className='container'>
             <h5 >{`${displayText}`}</h5 >
             <div className="load-wrapp">
@@ -80,8 +140,12 @@ function Calculate() {
                         <div className="bubble-2" style={{ backgroundColor: `${gradientColor}`}}></div>
                         <div className="bubble-3" style={{ backgroundColor: `${gradientColor}`}}></div>
                     </div>
+                    <div className={`${animClass} percentage`}>
+                      <h3>{`${percentage}`}%</h3>
+                    </div>
                 </div>
             </div>
+        </div>
         </div>
     )
 }
