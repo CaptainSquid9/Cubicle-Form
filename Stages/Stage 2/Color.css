@@ -44,9 +44,11 @@
 
 .fade {
     transition: color 1000ms ease-in-out;
+    opacity: 1;
   }
   .fade-hidden {
     color: transparent !important;
+    opacity: 0;
   }
 #colorWheel {
     position: relative;

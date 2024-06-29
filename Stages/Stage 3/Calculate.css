@@ -6,7 +6,7 @@
     text-align: center;
     margin-top: 0vh;
     position: relative;
-    top: -200px;
+    top: -150px;
 }
 
 .load-wrapp {
@@ -103,7 +103,7 @@ h5 {
 }
 .text-inst    {
     position: relative;
-    top: -150px;
+    top: -100px;
 }
 @keyframes loadingI {
     100% {
