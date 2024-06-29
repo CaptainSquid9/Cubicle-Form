@@ -194,7 +194,7 @@ function Final() {
   setTimeout(() => {
     SetFinalOutside("")
     SetSlidingOutside(false)
-   }, 2000);
+   }, 1000);
     //setVisibleOutside(false);
   }
   SetShowSlidingOutside(false);
