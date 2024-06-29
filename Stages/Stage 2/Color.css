@@ -1,113 +1,163 @@
 #root {
-    width: 100%;
-    text-align: center;
-  }
-  .world {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    perspective: 400px;
-    animation: fadeIn 3s forwards ease-in-out;
+  width: 100%;
+  text-align: center;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
 }
+
+.world {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  perspective: 400px;
+  animation: fadeIn 3s forwards ease-in-out;
+}
+
 .heading-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    padding-bottom: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  padding-bottom: 200px;
 }
+
 .heading {
-    font-size: 4em;
-    font-weight: bold;
-    animation: fadeIn 3.5s ease-in-out forwards;
-    width: 100%;
-    position: absolute;
-    color: white !important;
-  }
-  .backtext {
-    z-index: -1;
-    font-size: 4.1em;
-    position: absolute;
-    color: #ff5e5e !important;
-    animation: fadeIn 3.5s ease-in-out forwards;
-  }
+  font-size: 4em;
+  font-weight: bold;
+  animation: fadeIn 3.5s ease-in-out forwards;
+  width: 100%;
+  position: absolute;
+  color: white !important;
+}
+
+.backtext {
+  z-index: -1;
+  font-size: 4.1em;
+  padding-bottom: 10px;
+  position: absolute;
+  color: #861f1f !important;
+  animation: fadeIn 3.5s ease-in-out forwards;
+}
+
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .fade {
-    transition: color 1000ms ease-in-out;
-    opacity: 1;
-  }
-  .fade-hidden {
-    color: transparent !important;
-    opacity: 0;
-  }
+  transition: color 1000ms ease-in-out;
+  opacity: 1;
+}
+
+.fade-hidden {
+  color: transparent !important;
+  opacity: 0;
+}
+
 #colorWheel {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform-style: preserve-3d;
-    transform: rotateY(30deg) translateX(5vh) translateY(-7em);
-    animation: fadeIn 5s forwards ease-in-out;
-    top: -50px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transform: rotateY(30deg) translateX(5vh) translateY(-7em);
+  animation: fadeIn 5s forwards ease-in-out;
 }
 
 .cw-shadow {
-    position: fixed !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: -75px;
-    opacity: 0.3 !important;
-    z-index: -1;
-    transform: rotateY(30deg) translateZ(-40px) scale(1.1) translateX(5vh)  translateY(-7em)!important;
+  position: fixed !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -100px;
+  opacity: 0.3 !important;
+  z-index: -1;
+  transform: rotateY(30deg) translateZ(-40px) scale(1.1) translateX(5vh) translateY(-1em) !important;
 
-}#colorWheel .sector {
-    z-index: 100;
-    position: fixed;
-    left: 50%;
-    top: -5%;
-    width: 150px;
-    height: 150px;
-    clip-path: ellipse(100% 100% at 0% 100%);
-    transform: translateZ(0);
-    transform-origin: 0% 100%;
-    transition: transform 1s ease-in-out, opacity 1s linear;
-    backface-visibility: hidden;
-    will-change: transform, opacity;
 }
+
+#colorWheel .sector {
+  z-index: 100;
+  position: fixed;
+  left: 50%;
+  top: -30%;
+  width: 150px;
+  height: 150px;
+  clip-path: ellipse(100% 100% at 0% 100%);
+  transform: translateZ(0);
+  transform-origin: 0% 100%;
+  transition: transform 1s ease-in-out, opacity 1s linear;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
 .sector.scaled {
   opacity: 0.5;
   overflow: hidden;
   transform: scale(0.01);
   will-change: transform, opacity;
 }
+
 .sector.inv {
-    opacity: 0;
+  opacity: 0;
 }
-#colorWheel .sector-1 { transform: rotate(calc(0 * 90deg)); }
-#colorWheel .sector-2 { transform: rotate(calc(1 * 90deg)); }
-#colorWheel .sector-3 { transform: rotate(calc(2 * 90deg)); }
-#colorWheel .sector-4 { transform: rotate(calc(3 * 90deg)); }
 
-#colorWheel .sectorb-1 { transform: rotate(calc(0 * 90deg)); }
-#colorWheel .sectorb-2 { transform: rotate(calc(1 * 90deg)); }
-#colorWheel .sectorb-3 { transform: rotate(calc(2 * 90deg)); }
-#colorWheel .sectorb-4 { transform: rotate(calc(3 * 90deg)); }
+#colorWheel .sector-1 {
+  transform: rotate(calc(0 * 90deg));
+}
 
-#colorWheel:hover .sector-1:hover { transform: translate(10px, -10px) scale(1.1) !important;}
-#colorWheel:hover .sector-2:hover { transform: rotate(calc(1 * 90deg)) translate(10px, -10px) scale(1.1) !important;}
-#colorWheel:hover .sector-3:hover { transform: rotate(calc(2 * 90deg)) translate(10px, -10px) scale(1.1) !important;}
-#colorWheel:hover .sector-4:hover { transform: rotate(calc(3 * 90deg)) translate(10px, -10px) scale(1.1) !important;}
+#colorWheel .sector-2 {
+  transform: rotate(calc(1 * 90deg));
+}
+
+#colorWheel .sector-3 {
+  transform: rotate(calc(2 * 90deg));
+}
+
+#colorWheel .sector-4 {
+  transform: rotate(calc(3 * 90deg));
+}
+
+#colorWheel .sectorb-1 {
+  transform: rotate(calc(0 * 90deg));
+}
+
+#colorWheel .sectorb-2 {
+  transform: rotate(calc(1 * 90deg));
+}
+
+#colorWheel .sectorb-3 {
+  transform: rotate(calc(2 * 90deg));
+}
+
+#colorWheel .sectorb-4 {
+  transform: rotate(calc(3 * 90deg));
+}
+
+#colorWheel:hover .sector-1:hover {
+  transform: translate(10px, -10px) scale(1.1) !important;
+}
+
+#colorWheel:hover .sector-2:hover {
+  transform: rotate(calc(1 * 90deg)) translate(10px, -10px) scale(1.1) !important;
+}
+
+#colorWheel:hover .sector-3:hover {
+  transform: rotate(calc(2 * 90deg)) translate(10px, -10px) scale(1.1) !important;
+}
+
+#colorWheel:hover .sector-4:hover {
+  transform: rotate(calc(3 * 90deg)) translate(10px, -10px) scale(1.1) !important;
+}

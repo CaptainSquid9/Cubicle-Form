@@ -7,6 +7,7 @@
     margin-top: 0vh;
     position: relative;
     top: -150px;
+    color: white;
 }
 
 .load-wrapp {
@@ -92,6 +93,7 @@ h5 {
     transform-origin: center;
     font-size: 2em;
     top: auto;
+    color: white;
     transition: scale 3s linear;
 }
 .percentage-anim {

@@ -9,7 +9,7 @@
   /* Adjust rotation angles */
 }
 .heart.hovered {
-  transform: rotateY(10deg) rotateX(0deg) translateZ(-30vh) translateX(0.5vh) translateY(-18em);
+  transform: rotateY(10deg) rotateX(0deg) translateZ(-30vh) translateX(0.5vh) translateY(-16em);
 }
 
 .final-cube-transition {
@@ -58,7 +58,7 @@
   
 }
 .front::before, .front::after {
-  background: radial-gradient(#9f1010, #740c0c);
+  background: radial-gradient(#860d0d, #740c0c);
   content: "";
   position: absolute;
   top: -35px;
@@ -125,9 +125,13 @@
 .backtextI {
   z-index: -1;
   font-size: 3.6em;
+  padding-bottom: 10px;
   position: absolute;
-  color: #ff5e5e !important;
+  color: #861f1f !important;
   animation: fadeIn 3.5s ease-in-out forwards;
+}
+input {
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.479);
 }
 .form-element {
   opacity: 0; /* Initially hide the form element */
@@ -197,7 +201,8 @@
     top: 50px;
     left: 33px;
     padding: 6px 10px;
-    font-weight: 600;
+    text-transform:none;
+    font-weight: 800;
     text-shadow: 0 3px 0 #971616;
     background:  linear-gradient(#9f1010, #740c0c);
     color: white;
