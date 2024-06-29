@@ -54,7 +54,8 @@
 }
 
 .fade {
-  transition: color 1000ms ease-in-out;
+  transition: color 1000ms ease-in-out, opacity 1000ms ease-in-out;
+  
   opacity: 1;
 }
 

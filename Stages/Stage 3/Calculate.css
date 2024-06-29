@@ -100,7 +100,7 @@ h3 {
     transition: scale 3s linear;
 }
 .percentage-anim {
-    animation:fadeIn 10s forwards ease-in-out, bounce 10s ease-in-out infinite;
+    animation:fadeIn 10s forwards ease-in-out, bounce 8s ease-in-out infinite;
 }
 .final-anim{
     scale: 1;
