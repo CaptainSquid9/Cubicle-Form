@@ -9,7 +9,7 @@
   /* Adjust rotation angles */
 }
 .heart.hovered {
-  transform: rotateY(10deg) rotateX(5deg) translateZ(-20vh) translateX(-2.5vh) translateY(-17em);
+  transform: rotateY(10deg) rotateX(0deg) translateZ(-30vh) translateX(0.5vh) translateY(-18em);
 }
 
 .final-cube-transition {
@@ -124,7 +124,7 @@
 }
 .backtextI {
   z-index: -1;
-  font-size: 3.7em;
+  font-size: 3.6em;
   position: absolute;
   color: #ff5e5e !important;
   animation: fadeIn 3.5s ease-in-out forwards;
@@ -185,6 +185,7 @@
     text-shadow: 0 3px 0 #971616;
     background:  linear-gradient(#9f1010, #740c0c);
     border: 1px white solid;
+    color: white;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     transform-origin: 2px 2px;
@@ -199,6 +200,7 @@
     font-weight: 600;
     text-shadow: 0 3px 0 #971616;
     background:  linear-gradient(#9f1010, #740c0c);
+    color: white;
     border: 1px white solid;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
