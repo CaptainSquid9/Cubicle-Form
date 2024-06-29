@@ -96,6 +96,9 @@ h5 {
     color: white;
     transition: scale 3s linear;
 }
+h3 {
+    transition: scale 3s linear;
+}
 .percentage-anim {
     animation:fadeIn 10s forwards ease-in-out, bounce 10s ease-in-out infinite;
 }

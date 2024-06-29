@@ -82,7 +82,7 @@ function Intro() {
       setTimeout(() => {
         setInstruction(Instruction === "Compatibility Test" ? "Swipe right!" : "Swipe again!")
         setVisible(true);
-      }, 500);
+      }, 1000);
       setVisible(false);
       setShowSlidingCircle(true);
 

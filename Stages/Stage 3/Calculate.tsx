@@ -10,10 +10,13 @@ let SetGradientColorOutside;
 let SetAnimClassOutside;
 let SetVisibleOutside;
 let x= 0;
+let y=0;
 let check = false;
+let Finished = false;
 let current = 0;
+let scaledec = 1
 let CompatibilityMax = Math.floor(Math.random() * (Math.floor(90) - Math.ceil(65)) + Math.ceil(65));
-let compatibilityOutside;
+let SetCompatibilityOutside;
 
 const useTypewriter = (text, speed = 50) => {
     const [displayText, setDisplayText] = useState('');
@@ -68,6 +71,8 @@ function PercentageChange(speeds) {
   let minCeiled
   let maxFloored
   let compatible
+
+  SetCompatibilityOutside = setPercentage;
   console.log(CompatibilityMax)
   useEffect(() => {
     const randomInterval = setInterval(() => {
@@ -92,6 +97,7 @@ function PercentageChange(speeds) {
          setPercentage(current);
       }
       setTimeout(() => {
+        Finished = true;
         SetAnimClassOutside("final-anim")
         SetVisibleOutside(true)
         clearInterval(randomInterval);
@@ -109,6 +115,9 @@ function Calculate() {
     const [visible, setVisible] = useState(false);
     const [Instruction, setInstruction] = useState("Double click to give it a boost")
 
+    const [waitingClick, setWaitingClick] = useState<ReturnType<typeof setTimeout> | null>(null);
+    const [lastClick, setLastClick] = useState(0);
+
     Data = globalData;
     SetInfoOutside = setInfo;
     InfoOutside = info;
@@ -124,14 +133,47 @@ function Calculate() {
     if (Data.UserName == "" || Data.MatchName == "" || Data.Color == "") {
       navigate("/")
     }
-  })
+  });
+    const DoubleClick = () => {
+      if (y < 5 && Finished == true) {
+        y++;
+        scaledec += y * 0.1;
+      current += Math.floor(Math.random() * (Math.floor(y) - Math.ceil(1)) + Math.ceil(1));
+      SetCompatibilityOutside(current);
+    } else if (y == 5) {
+      scaledec = 0;
+      setInstruction("Share your link with your partner!")
+      setInfo("Congrats! you have a score of " + current + "%")
+    }
+    }
+    const processClick = (e) => {
+      if (lastClick && e.timeStamp - lastClick < 250) {
+        // Double tap detected
+        setLastClick(0);
+        if (waitingClick) {
+          clearTimeout(waitingClick);
+        }
+        console.log("Do the steps to respond double click");
+        DoubleClick();
+        setWaitingClick(null);
+      } else {
+        // Single tap detected
+        setLastClick(e.timeStamp);
+        const timeout = setTimeout(() => {
+          setWaitingClick(null);
+          console.log("Do the steps to respond single click");
+          // You can add the single click action here if needed
+        }, 250);
+        setWaitingClick(timeout);
+      }
+  }
     return (
     <div>
         <div className="heading-container text-inst">
         <h1 className={` fade ${!visible ? 'fade-hidden' : ''} heading`} >{Instruction}</h1>
          <h1 className={` backtext fade ${!visible ? 'fade-hidden' : ''} heading`} >{Instruction}</h1>
         </div>
-        <div className='container'>
+        <div className='container'  onClick={(e)=>processClick(e)}>
             <h5 >{`${displayText}`}</h5 >
             <div className="load-wrapp">
                 <div className="load-9">
@@ -141,7 +183,7 @@ function Calculate() {
                         <div className="bubble-3" style={{ backgroundColor: `${gradientColor}`}}></div>
                     </div>
                     <div className={`${animClass} percentage`}>
-                      <h3>{`${percentage}`}%</h3>
+                      <h3 style={{scale: `${scaledec}`}}>{`${percentage}`}%</h3>
                     </div>
                 </div>
             </div>

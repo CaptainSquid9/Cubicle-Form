@@ -76,7 +76,6 @@ const navigate = useNavigate();
       if (waitingClick) {
         clearTimeout(waitingClick);
       }
-      console.log("Do the steps to respond double click");
       DoubleClick(i, color);
       setWaitingClick(null);
     } else {
@@ -84,7 +83,6 @@ const navigate = useNavigate();
       setLastClick(e.timeStamp);
       const timeout = setTimeout(() => {
         setWaitingClick(null);
-        console.log("Do the steps to respond single click");
         // You can add the single click action here if needed
       }, 250);
       setWaitingClick(timeout);
