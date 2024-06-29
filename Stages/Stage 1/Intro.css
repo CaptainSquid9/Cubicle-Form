@@ -115,7 +115,7 @@
   transform-origin: 75% 100%;
 }
 .headingI {
-  font-size: 3.5em;
+  font-size: 3.3em;
   font-weight: bold;
   animation: fadeIn 3.5s ease-in-out forwards;
   position: absolute;
@@ -124,7 +124,7 @@
 }
 .backtextI {
   z-index: -1;
-  font-size: 3.6em;
+  font-size: 3.4em;
   padding-bottom: 10px;
   position: absolute;
   color: #861f1f !important;
