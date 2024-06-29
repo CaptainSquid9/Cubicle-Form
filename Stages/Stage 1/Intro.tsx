@@ -82,11 +82,11 @@ function Intro() {
       setTimeout(() => {
         setInstruction(Instruction === "Compatibility Test" ? "Swipe right!" : "Swipe again!")
         setVisible(true);
-      }, 1000);
+      }, 500);
       setVisible(false);
       setShowSlidingCircle(true);
 
-    }, 2000);
+    }, 1000);
   };
 
 
@@ -194,7 +194,7 @@ function Final() {
   setTimeout(() => {
     SetFinalOutside("")
     SetSlidingOutside(false)
-   }, 1000);
+   }, 2000);
     //setVisibleOutside(false);
   }
   SetShowSlidingOutside(false);
