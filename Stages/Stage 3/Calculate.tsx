@@ -142,13 +142,13 @@ function Calculate() {
           setInstruction("Keep going!")
           setVisible(true)
         }, 1000);
-
       }
       y++;
       scaledec += y * 0.1;
       current += Math.floor(Math.random() * (Math.floor(y) - Math.ceil(1)) + Math.ceil(1));
       SetCompatibilityOutside(current);
     } else if (y == 5) {
+      y++;
       setVisible(false)
       console.log(visible);
       current += Math.floor(Math.random() * (Math.floor(y) - Math.ceil(1)) + Math.ceil(1));
@@ -176,7 +176,6 @@ function Calculate() {
       setLastClick(e.timeStamp);
       const timeout = setTimeout(() => {
         setWaitingClick(null);
-        console.log("Do the steps to respond single click");
         // You can add the single click action here if needed
       }, 250);
       setWaitingClick(timeout);
