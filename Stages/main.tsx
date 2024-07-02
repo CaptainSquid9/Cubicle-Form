@@ -4,9 +4,8 @@ import {Intro} from './Stage 1/Intro'
 import HomePageRedirect from './HomePageRedirect'
 import Color from './Stage 2/Color'
 import Calculate from './Stage 3/Calculate';
-import { GlobalDataProvider } from './global'
+import { GlobalDataProvider, useGlobalData} from './global'
 import './index.css'
-import { createRoot } from "react-dom/client";
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 

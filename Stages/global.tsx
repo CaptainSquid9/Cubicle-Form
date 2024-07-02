@@ -24,7 +24,7 @@ export const GlobalDataProvider = ({ children }: { children: ReactNode }) => {
     setGlobalData({
       UserName: username || globalData.UserName,
       MatchName: matchname || globalData.MatchName,
-      Color: color,
+      Color: color ||  globalData.Color,
     });
   };
 

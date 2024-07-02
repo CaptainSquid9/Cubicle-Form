@@ -2,9 +2,11 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { useGlobalData } from './global';
 
 const HomePageRedirect = () => {
   const navigate = useNavigate();
+  const { globalData, setData } = useGlobalData();
 
   useEffect(() => {
     const generateColors = async (userId) => {
@@ -27,6 +29,7 @@ const HomePageRedirect = () => {
     };
 
     const userId = uuidv4();  // Generate a unique user ID
+    setData("","","")
     generateColors(userId);
   }, [navigate]);
 

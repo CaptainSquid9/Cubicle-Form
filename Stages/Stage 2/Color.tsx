@@ -17,9 +17,13 @@ const [Instruction, setInstruction] = useState("Pick your favorite color")
 const [scaledSectors, setScaledSectors] =  useState<boolean[]>(new Array(4).fill(false)); // State to track scaled sectors
 const [InvSectors, setInvSectors] =  useState<boolean[]>(new Array(4).fill(false)); // State to track scaled sectors
 const { globalData, setData } = useGlobalData();
+
 const navigate = useNavigate();
 
   useEffect(() => {
+      if (globalData.UserName == "" || globalData.MatchName == "" || globalData.Color == "") {
+        navigate("/")
+      }
     const fetchUserColors = async (userId) => {
       try {
         const response = await fetch(`/api/userColors/${userId}`);

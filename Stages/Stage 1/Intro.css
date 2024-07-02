@@ -185,11 +185,12 @@ input {
     top: 50px;
     left: 33px;
     padding: 6px 10px;
-    font-weight: 600;
+    text-transform:none;
+    font-weight: 800;
     text-shadow: 0 3px 0 #971616;
     background:  linear-gradient(#9f1010, #740c0c);
-    border: 1px white solid;
     color: white;
+    border: 1px white solid;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     transform-origin: 2px 2px;
