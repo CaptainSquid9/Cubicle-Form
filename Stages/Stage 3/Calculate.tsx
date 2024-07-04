@@ -163,7 +163,7 @@ function Calculate() {
     }
   }
   const processClick = (e) => {
-    if (lastClick && e.timeStamp - lastClick < 250) {
+    if (lastClick && e.timeStamp - lastClick < 500) {
       // Double tap detected
       setLastClick(0);
       if (waitingClick) {
@@ -177,7 +177,7 @@ function Calculate() {
       const timeout = setTimeout(() => {
         setWaitingClick(null);
         // You can add the single click action here if needed
-      }, 250);
+      }, 500);
       setWaitingClick(timeout);
     }
   }

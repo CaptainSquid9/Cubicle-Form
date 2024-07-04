@@ -124,14 +124,15 @@
 }
 .backtextI {
   z-index: -1;
-  font-size: 3.4em;
-  padding-bottom: 10px;
+  font-size: 3.3em;
+  padding-bottom: 5px;
+  padding-right: 10px;
   position: absolute;
   color: #861f1f !important;
   animation: fadeIn 3.5s ease-in-out forwards;
 }
 input {
-  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.479);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
 }
 .form-element {
   opacity: 0; /* Initially hide the form element */
@@ -172,7 +173,8 @@ input {
   border: 0;
   border-radius: 3px;
   outline: 0;
-  text-indent: 0px; 
+  text-indent: 0px;
+   
   
   &::-webkit-input-placeholder {
     color: #efefef;
@@ -195,6 +197,7 @@ input {
     border-bottom-left-radius: 3px;
     transform-origin: 2px 2px;
     animation: swing-back 0.9s 1 ease-in-out forwards;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
   }
 + .swing-label  {
     display: inline-block;
@@ -213,6 +216,7 @@ input {
     transform-origin: 2px 2px;
     animation: swing 1.4s 1 linear forwards;
     animation-delay: 2.5s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
   }
 }
 @keyframes swing {

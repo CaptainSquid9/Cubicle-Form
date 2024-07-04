@@ -21,7 +21,7 @@ const { globalData, setData } = useGlobalData();
 const navigate = useNavigate();
 
   useEffect(() => {
-      if (globalData.UserName == "" || globalData.MatchName == "" || globalData.Color == "") {
+      if (globalData.UserName == "" || globalData.MatchName == "") {
         navigate("/")
       }
     const fetchUserColors = async (userId) => {
@@ -74,7 +74,7 @@ const navigate = useNavigate();
 
   // Double tap (mobile) detect
   const processClick = (e, i, color) => {
-    if (lastClick && e.timeStamp - lastClick < 250) {
+    if (lastClick && e.timeStamp - lastClick < 500) {
       // Double tap detected
       setLastClick(0);
       if (waitingClick) {
@@ -88,7 +88,7 @@ const navigate = useNavigate();
       const timeout = setTimeout(() => {
         setWaitingClick(null);
         // You can add the single click action here if needed
-      }, 250);
+      }, 500);
       setWaitingClick(timeout);
     }
   };
