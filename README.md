@@ -10,3 +10,4 @@ Typescript React Web App.
   Using react-router-dom npm for Stages of the form
   
 
+![In-Action-GIF](https://github.com/user-attachments/assets/99e0776b-9022-4218-9c06-675f524fa632)
